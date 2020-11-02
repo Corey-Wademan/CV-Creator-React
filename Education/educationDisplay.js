@@ -4,8 +4,8 @@ export default class EducationDisplay extends Component {
     render() {
         if (this.props.view === false) {
             return (
-                <section id={this.props.index} class='educationFormContent'>
-                    <div className='institutionalInfo'>
+                <section id={this.props.index} className='educationFormContent'>
+                    <div className='schoolInfo'>
                         <p>{this.props.data.schoolName}</p>
                         <p>{this.props.data.graduationYear}</p>
                         <p>{this.props.data.schoolLocation}</p>
@@ -21,7 +21,7 @@ export default class EducationDisplay extends Component {
             )
         } else {
             return (
-                <section id={this.props.id} class='educationFormContent' >
+                <section id={this.props.id} className='educationFormContent' >
                     <label className='formLabels'>
                         School Name
                         <input 
@@ -55,7 +55,7 @@ export default class EducationDisplay extends Component {
                         <input 
                         className='formInputs'
                         name='graduationYear'
-                        type='text'
+                        type='Date'
                         id={'graduationYear' + this.props.index}
                         value={this.props.data.graduationYear}
                         onChange={this.props.handleChange}
@@ -118,11 +118,19 @@ export default class EducationDisplay extends Component {
                         placeholder='3.5'
                         ></input>
                     </label>
+                    <br></br>
+                    <div id='deleteButtonContainer'>
+                        <button 
+                            className='deleteButtons'
+                            id={`deleteEducationAtThisIndex${this.props.index}`}
+                            onClick={(e) => this.props.deleteEducation(e)}
+                            >X</button>
+                    </div>
                 </section>
             )
         }
     }
-}
+} 
 
 
  
