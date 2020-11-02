@@ -30,7 +30,7 @@ export default class Education extends Component {
     addEducation() {
         this.setState({
             educationData: [
-                ...this.educationData,
+                ...this.state.educationData,
                 {
                  schoolName: '',
                  schoolLocation: '',
@@ -53,15 +53,17 @@ export default class Education extends Component {
     };
 
     handleChange(e) {
-       const { educationData } = this.state;
-       const index = educationData.findIndex(item => item.id === item);
-       educationData[index].e.target.name = e.target.value; 
+        const index = Number(e.target.id.substring(e.target.id.length - 1));
+		const copyFormArray = JSON.parse(JSON.stringify(this.state.educationData));
+        copyFormArray[index][e.target.name] = e.target.value;
+		this.setState({
+			educationData: copyFormArray,
+		});
     };
 
     handleSubmit(e) {
         const { educationData } = this.state;
         localStorage.setItem("educationData", JSON.stringify(educationData));
-        e.preventDefault();
         e.preventDefault();
     }
 
@@ -76,11 +78,14 @@ export default class Education extends Component {
 
     componentDidMount() {
         let educationData = JSON.parse(localStorage.getItem("educationData" ));
+        if (educationData === null) {
+			educationData = this.state.educationData;
+		}
         this.setState({educationData})
     };
     
     render() {
-        const educationRender = Object.keys(this.state.educationData).map((item, i) => (
+        const educationRender = this.state.educationData.map((item, i) => (
             <EducationDisplay
                 id={'formIndexAt ' + i}
                 index={i}
@@ -105,6 +110,7 @@ export default class Education extends Component {
                         view={this.state.formView}
                         toggleView={this.toggleView}
                         addSection={this.addEducation}
+                        wrapperFunction={this.wrapperFunction}
                     />
                 </form>
             </main>
