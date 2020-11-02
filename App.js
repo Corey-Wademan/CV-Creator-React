@@ -10,6 +10,7 @@ class App extends React.Component {
   render(){
     return (
       <div className='appContainer'>
+        <h1 className='appTitle'>CV Generator</h1>
         <Biography />
         <Education />
         <Experience />

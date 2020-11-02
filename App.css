@@ -1,3 +1,22 @@
+* {
+font-family: cursive;
+}
+
+.appContainer {
+justify-content: center; 
+align-items: center;
+display: flex;
+text-align: center;
+flex-direction: column;
+border: 2px solid black;
+padding: 15px;
+margin: 5%;
+}
+
+.appTitle {
+        
+}
+
 .bioContainer {
 
 }
@@ -17,32 +36,100 @@
 .formInputs {
 
 }
-/* Education */
 
-.educationForm {
-
+#experienceFormContainer,
+#generalInfoContainer,
+#educationFormContainer,
+#skillsFormContainer {
+	background-color: white;
+	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px 0 rgba(0, 0, 0, 0.14),
+		0 1px 14px 0 rgba(0, 0, 0, 0.12);
+	margin: 15%;
 }
 
-.educationFormContent {
+        /* Form Content */
 
+.experienceFormContent,
+.educationFormContent,
+.skillsFormContent {
+        width: 100%;
+        padding: 4% 5% 2% 5%;
+        border: 3px solid #e3e3e3;
 }
 
-.institutionalInfo {
-
+        /* Forms */
+#experienceForm,
+#educationForm,
+#skillsForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
 }
 
-/* Experience */
+/* Buttons Style */
 
-/* Skills */
-
-#EditButton {
-    
+.editButtons {
+        margin: 2%;
+	width: 20%;
+	min-width: 40px;
+	max-width: 80px;
+	border-radius: 12px;
+	background-color: white;
+	border: 2px #5068a9 solid;
+	color: #5068a9;
+	transition: 350ms;
 }
 
-#SaveButton {
-
+.editButtons:hover {
+        background-color: #5068a9;
+	color: white;
+	border: 2px #303f68 solid;
+	cursor: pointer;
 }
 
-.editAndSaveButtons {
+.saveButtons {
+        margin: 2%;
+	width: 20%;
+	min-width: 60px;
+	max-width: 100px;
+	height: 24px;
+	border-radius: 12px;
+	background-color: white;
+	border: 2px #689f38 solid;
+	color: #689f38;
+	transition: 350ms;
+}
+.saveButtons:hover {
+        background-color: #689f38;
+	border: 2px #304919 solid;
+	color: white;
+	cursor: pointer;
+}
+
+.deleteButtonContainer {
+        text-align: center;
+}
+
+.deleteButtons {
+        background-color: white;
+	color: #d45a5a;
+	border: 2px #d45a5a solid;
+	width: 10%;
+	max-width: 50px;
+	height: 1.5rem;
+	text-align: center;
+	border-radius: 15px;
+	transition: 350ms;
+}
+.deleteButtons:hover {
+        background-color: #d45a5a;
+	border: 2px #6d2f2f solid;
+	color: white;
+	cursor: pointer;
+}
+
+.addAndSaveButtons {
 
 }
